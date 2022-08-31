@@ -1,0 +1,16 @@
+{
+  "name": "ms-emails",
+  "version": "1.0.0",
+  "description": "A microservice app that subscribes to another application via Kafka to learn when emails are sent and also sends emails to system admins.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index.js"
+  },
+  "author": "Luis Coelho",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
