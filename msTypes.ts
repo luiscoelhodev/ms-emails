@@ -1,7 +1,7 @@
 enum SubjectEnum {
-  newBet = 'new bet' ,
-  newUser = 'new user',
-  newPassword = 'new password'
+  newBet = 'A new bet was created!',
+  newUser = 'Welcome to the Lottery API!',
+  newPassword = "Here's your reset passwork token.",
 }
 
 type Bet = {
