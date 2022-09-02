@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "npx ts-node-dev --respawn --transpile-only index.ts",
-    "producer": "npx ts-node-dev --respawn --transpile-only mockProducer.ts",
-    "consumer": "npx ts-node-dev --respawn --transpile-only mockConsumer.ts"
+    "dev": "npx ts-node-dev --respawn --transpile-only ./src/index.ts",
+    "producer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockProducer.ts",
+    "consumer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockConsumer.ts"
   },
   "author": "Luis Coelho",
   "license": "ISC",

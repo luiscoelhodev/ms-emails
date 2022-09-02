@@ -1,6 +1,5 @@
-import { kafka, TopicEnum } from './kafkaConnector'
-import { MessageFromProducer, SubjectEnum, User } from './msTypes'
-
+import { kafka, TopicEnum } from '../src/kafkaConnector'
+import { MessageFromProducer, SubjectEnum, User } from '../src/msTypes'
 
 const myUser: User = {
 	id: 4,

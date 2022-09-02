@@ -1,6 +1,6 @@
-import { kafka, TopicEnum } from './kafkaConnector'
-import { User, SubjectEnum, MessageFromProducer } from './msTypes'
-import { sendMail } from './sendMail'
+import { kafka, TopicEnum } from '../src/kafkaConnector'
+import { User, SubjectEnum, MessageFromProducer } from '../src/msTypes'
+import { sendMail } from '../src/sendMail'
 
 const myMSMockConsumer = async () => {
   const consumer = kafka.consumer({ groupId: 'ms-group' })
