@@ -43,13 +43,10 @@ const betsObject: MessageFromProducer = {
   ]
 }
 
-const myMSProducer = async () => {
+const myMSMockProducer = async () => {
   const producer = kafka.producer()
 
   await producer.connect()
-  // console.log('betsObject', betsObject)
-  // console.log('newUser', newUser)
-  // console.log('newPassword', newPassword)
   console.log('Producer connected')
   const topic = TopicEnum.emails
   await producer.send({
@@ -65,4 +62,4 @@ const myMSProducer = async () => {
   console.log('Message sent')
 }
 
-myMSProducer()
+myMSMockProducer()
