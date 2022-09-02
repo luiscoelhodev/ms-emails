@@ -1,5 +1,8 @@
 import express from 'express'
 import { Kafka } from 'kafkajs'
+import { MessageFromProducer, SubjectEnum, User } from './msTypes';
+import { sendMail } from './sendMail';
+import 'dotenv/config'
 const server = express()
 const port = 3000
 
@@ -24,9 +27,20 @@ const myMSConsumer = async () => {
   
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-      console.log({
-        value: message.value!.toString(),
-      })
+      const messageData: MessageFromProducer = JSON.parse(message.value!.toString())
+      if (messageData.subject === SubjectEnum.newBet) {
+        const admin: User = {
+          name: 'Admin', 
+          email: 'admin@email.com', 
+          cpf: '111.222.333-00', 
+          id: 1, 
+          password: 'secret', 
+          secureId: 'random', 
+          createdAt: Date.now().toString(), 
+          updatedAt: Date.now().toString()
+        }
+        await sendMail({user: admin, subject: SubjectEnum.newBet, betsArray: messageData.betsArray})
+      }
     },
   })
 }
