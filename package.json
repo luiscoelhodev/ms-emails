@@ -7,7 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/index.ts",
     "producer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockProducer.ts",
-    "consumer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockConsumer.ts"
+    "consumer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockConsumer.ts",
+    "build": "npx tsc -b",
+    "start": "node index.js"
   },
   "author": "Luis Coelho",
   "license": "ISC",
