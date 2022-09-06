@@ -2,11 +2,11 @@ import { Kafka } from "kafkajs"
 
 const kafka = new Kafka({
   clientId: 'lottery-api',
-  brokers: ['localhost:9092'],
+  brokers: ['kafka:9091'],
 })
 
 enum TopicEnum {
-  emails = 'emails',
+  emails = 'lottery-api-emails',
 }
 
 export { kafka, TopicEnum }
