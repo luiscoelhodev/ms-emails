@@ -1,6 +1,12 @@
 import { Bet, SubjectEnum, User } from "./msTypes"
 
-export function getTemplate(subject: string, user: User, token?: string, betsArray?: Bet[]) {
+export function getTemplate(
+  subject: string, 
+  user: User, 
+  token?: string, 
+  betsArray?: Bet[], 
+  arrayOfAdminUsers?: User[]) 
+  {
   if (user.email !== 'admin@email.com'){
     switch (subject) {
       case SubjectEnum.newUser:

@@ -1,7 +1,10 @@
+import { DateTime } from "luxon"
+
 enum SubjectEnum {
   newBet = 'A new bet was created!',
   newUser = 'Welcome to the Lottery API!',
   newPassword = "Here's your reset passwork token.",
+  remindUserToBe = "Long time no see!"
 }
 
 type Bet = {
@@ -16,14 +19,15 @@ type User = {
   cpf: string
   email: string
   password: string
-  createdAt: string
-  updatedAt: string
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 type MessageFromProducer = {
   user: User, 
   subject: string, 
   token?: string, 
-  betsArray?: Bet[]
+  betsArray?: Bet[],
+  arrayOfAdminUsers?: User[]
 }
 export { Bet, MessageFromProducer, SubjectEnum, User}
