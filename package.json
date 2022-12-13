@@ -8,8 +8,8 @@
     "dev": "npx ts-node-dev --respawn --transpile-only ./src/index.ts",
     "producer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockProducer.ts",
     "consumer": "npx ts-node-dev --respawn --transpile-only ./Mock/mockConsumer.ts",
-    "build": "npx tsc -b",
-    "start": "node index.js"
+    "build": "etsc",
+    "start": "etsc && node ./dist/index.js"
   },
   "author": "Luis Coelho",
   "license": "ISC",
@@ -17,11 +17,12 @@
     "@types/node": "^18.7.14",
     "@types/nodemailer": "^6.4.5",
     "dotenv": "^16.0.2",
+    "esbuild-node-tsc": "^2.0.4",
     "kafkajs": "^2.2.0",
     "luxon": "^3.0.3",
     "nodemailer": "^6.7.8",
     "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.2"
+    "typescript": "^4.9.4"
   },
   "devDependencies": {
     "@types/luxon": "^3.0.1"

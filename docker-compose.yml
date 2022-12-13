@@ -15,7 +15,8 @@ services:
     ports:
       - '3000:3000'
     depends_on:
-      - kafka
+      kafka:
+        condition: service_healthy
     networks:
       - luby
 
@@ -50,6 +51,11 @@ services:
       - luby
     depends_on:
       - zookeeper
+    healthcheck:
+      test: ["CMD-SHELL", "nc -z localhost 9091 || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 60
   kafdrop:
     image: obsidiandynamics/kafdrop
     hostname: kafdrop
