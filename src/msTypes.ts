@@ -3,8 +3,8 @@ import { DateTime } from "luxon"
 enum SubjectEnum {
   newBet = 'A new bet was created!',
   newUser = 'Welcome to the Lottery API!',
-  newPassword = "Here's your reset passwork token.",
-  remindUserToBe = "Long time no see!"
+  newPassword = "Here's your reset password token.",
+  remindUserToBet = "Long time no see!"
 }
 
 type Bet = {
