@@ -1,6 +1,6 @@
 import { Kafka } from 'kafkajs';
 import { TopicEnum } from './kafkaConnector'
-import { MessageFromProducer, SubjectEnum, User } from './msTypes';
+import { MessageFromProducer, SubjectEnum } from './msTypes';
 import { sendMail } from './sendMail';
 import 'dotenv/config'
 
@@ -20,8 +20,25 @@ const myMSConsumer = async () => {
     eachMessage: async ({ message }) => {
       const messageData: MessageFromProducer = JSON.parse(message.value!.toString())
       console.log(messageData)
-      if (messageData.subject === SubjectEnum.newBet) {
-        //await sendMail({user: admin, subject: SubjectEnum.newBet, betsArray: messageData.betsArray})
+
+      switch (messageData.subject) {
+        case SubjectEnum.newUser:
+          await sendMail({ user: messageData.user, subject: messageData.subject })
+        
+        case SubjectEnum.newBet:
+          await sendMail({ user: messageData.user, subject: messageData.subject, betsArray: messageData.betsArray})
+          await Promise.all(
+            messageData.arrayOfAdminUsers!.map(async admin => {
+              await sendMail({ user: admin, subject: `Admin, new bets were placed!`, betsArray: messageData.betsArray })
+          }))
+        case SubjectEnum.newPassword:
+          await sendMail({ user: messageData.user, subject: messageData.subject, token: messageData.token })
+        
+        case SubjectEnum.remindUserToBet:
+          await sendMail({ user: messageData.user, subject: messageData.subject })
+        
+        default:
+          break
       }
     },
   })
