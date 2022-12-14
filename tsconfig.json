@@ -91,7 +91,7 @@
   },
   "exclude": [
     "node_modules",
-    "./Mock"
+    "./mock"
   ],
   // "include": ["./src/**/*.ts"]
 }
